@@ -2,16 +2,17 @@ import React, {useState} from "react";
 
 type AccordionPropsType = {
     title: string
-    collapsed:boolean
 }
 
-export const Accordion = (props: AccordionPropsType) => {
+export const UncontrolledAccordion = (props: AccordionPropsType) => {
 
-
+    let [collapsed, setCollapsed] = useState(false)
 
     return <div>
         <AccordionTitle title={props.title}/>
-        {!props.collapsed && <AccordionBody/>}
+        <button onClick={() => {
+            setCollapsed(!collapsed)}}>TOGGLE</button>
+        {!collapsed && <AccordionBody/>}
     </div>
 }
 

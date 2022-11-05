@@ -4,11 +4,13 @@ import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
 import {Rating} from "./components/Rating";
 import {OnOff} from "./components/OnOff";
 import {Accordion} from "./components/Accordion";
+import {UncontrolledRating} from "./components/UncontrolledRating";
 
 const App = () => {
     return (
         <div className="App">
-            <OnOff />
+            <OnOff/>
+            <UncontrolledRating/>
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
             {/*<Rating value={3}/>*/}

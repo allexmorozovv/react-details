@@ -3,24 +3,30 @@ import React, {useState} from "react";
 type AccordionPropsType = {
     title: string
     collapsed:boolean
+    onClick:(value:boolean)=>void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
 
-
-
     return <div>
-        <AccordionTitle title={props.title}/>
+        <AccordionTitle title={props.title} onClick={()=>props.onClick(!props.collapsed)}
+                        // collapsed={props.collapsed}
+        />
         {!props.collapsed && <AccordionBody/>}
     </div>
 }
 
 type AccordionTitlePropsType = {
     title: string
+    onClick:()=>void
+    // collapsed:boolean
+    // onClick:(value:boolean)=>void
+
 }
 const AccordionTitle = (props: AccordionTitlePropsType) => {
 
-    return <h3>{props.title}</h3>
+    return <h3 onClick={()=>props.onClick()}>{props.title}</h3>
+    // return <h3 onClick={()=>props.onClick(!props.collapsed)}>{props.title}</h3>
 }
 const AccordionBody = () => {
     return <div>

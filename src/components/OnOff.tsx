@@ -1,19 +1,20 @@
 import React, {useState} from "react";
 
 type PropsType = {
-    // on: boolean
+   callBack:( onControlled:boolean)=>void
+    onControlled:boolean
 }
 
 
 
 export const OnOff = (props: PropsType) => {
-    let [on,setOn]=useState(false)
+
 
 
     const onStyle = {
         width: '40px',
         height: '30px',
-        backgroundColor: on?'green':'white',
+        backgroundColor: props.onControlled?'green':'white',
         border: '1 px solid black ',
         display: 'inline-block',
         padding:'5px'
@@ -21,7 +22,7 @@ export const OnOff = (props: PropsType) => {
     const offStyle = {
         width: '40px',
         height: '30px',
-        backgroundColor: on?'white':'red',
+        backgroundColor: props.onControlled?'white':'red',
         border: '1 px solid black ',
         display: 'inline-block',
         marginLeft: '2px',
@@ -34,13 +35,13 @@ export const OnOff = (props: PropsType) => {
         border: '1px solid black',
         display: 'inline-block',
         marginLeft:'5px',
-        backgroundColor:on?'green':'red'
+        backgroundColor:props.onControlled?'green':'red'
     }
 
     return (
         <div>
-            <button style={onStyle} onClick={()=>{setOn(true)}}>On</button>
-            <button style={offStyle}onClick={()=>{setOn(false)}}>Off</button>
+            <button style={onStyle} onClick={()=>props.callBack(true)}>On</button>
+            <button style={offStyle}onClick={()=>{props.callBack(false)}}>Off</button>
             <div style={indicatorStyle}></div>
 
         </div>

@@ -5,6 +5,7 @@ import {Rating, RatingValueType} from "./components/Rating";
 import {OnOff} from "./components/OnOff";
 import {Accordion} from "./components/Accordion";
 import {UncontrolledRating} from "./components/UncontrolledRating";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
 
 const App = () => {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -14,13 +15,14 @@ const App = () => {
     return (
         <div className="App">
             <OnOff callBack={setOnControlled} onControlled={onControlled}/>
-            {/*<UncontrolledAccordion title={'-- Menu --'}/>*/}
             <Accordion title={'-- User --'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
-            <Rating value={ratingValue} onClick={setRatingValue}/>
             {/*<Rating value={4}/>*/}
             {/*<Rating value={5}/>*/}
+            <UncontrolledOnOff onChange={setOnControlled}/>
+            <UncontrolledAccordion title={'-- Menu --'}/>
             <UncontrolledRating/>
 
         </div>

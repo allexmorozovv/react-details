@@ -1,6 +1,5 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {ComponentMeta} from '@storybook/react';
-import {action} from "@storybook/addon-actions";
 import {UncontrolledAccordion} from "./UncontrolledAccordion";
 
 
@@ -14,13 +13,8 @@ export default {
     },
 } as ComponentMeta<typeof UncontrolledAccordion>;
 
-const actionHandler = action("accordion mode change event fired")
-
-// export const CollapsedMode = () => <UncontrolledAccordion title={'Menu'} />
-// export const UncollapsedMode = () => <UncontrolledAccordion title={'Menu'} />
 
 export const ModeChanging = () => {
-    const [value, setValue] = useState<boolean>(true)
     return <UncontrolledAccordion title={'Menu'}/>
 }
 

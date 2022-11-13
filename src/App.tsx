@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import {UncontrolledAccordion} from "./components/UncontrolledAccordion";
-import {Rating, RatingValueType} from "./components/Rating";
-import {OnOff} from "./components/OnOff";
-import {Accordion} from "./components/Accordion";
-import {UncontrolledRating} from "./components/UncontrolledRating";
-import {UncontrolledOnOff} from "./components/UncontrolledOnOff";
+import {UncontrolledAccordion} from "./components/UncontrolledAccordion/UncontrolledAccordion";
+import {Rating, RatingValueType} from "./components/Rating/Rating";
+import {OnOff} from "./components/OnOff/OnOff";
+import {Accordion} from "./components/Accordion/Accordion";
+import {UncontrolledRating} from "./components/UncontrolledRating/UncontrolledRating";
+import {UncontrolledOnOff} from "./components/UncontrolledOnOff/UncontrolledOnOff";
 
 const App = () => {
     const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
@@ -24,7 +24,6 @@ const App = () => {
             <UncontrolledOnOff onChange={setOnControlled}/>
             <UncontrolledAccordion title={'-- Menu --'}/>
             <UncontrolledRating/>
-
         </div>
     );
 }

@@ -28,6 +28,7 @@ const AccordionTitle = (props: AccordionTitlePropsType) => {
     }
     return <h3 onClick={onClickHandler}>{props.title}</h3>
 }
+
 const AccordionBody = () => {
     return <div>
         <ul>

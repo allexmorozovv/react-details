@@ -23,7 +23,7 @@ const App = () => {
             {/*<Rating value={5}/>*/}
             <UncontrolledOnOff onChange={setOnControlled}/>
             <UncontrolledAccordion title={'-- Menu --'}/>
-            <UncontrolledRating/>
+            <UncontrolledRating onChange={()=>{}}/>
         </div>
     );
 }

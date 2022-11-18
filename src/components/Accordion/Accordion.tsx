@@ -1,9 +1,14 @@
 import React, {useState} from "react";
 
-type AccordionPropsType = {
+export type AccordionPropsType = {
     title: string
     collapsed:boolean
+    /**
+     * OnClick that is called when header clicked
+     * @param value
+     */
     onClick:(value:boolean)=>void
+
 }
 
 export const Accordion = (props: AccordionPropsType) => {

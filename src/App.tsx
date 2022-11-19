@@ -15,8 +15,8 @@ const App = () => {
     return (
         <div className="App">
             <OnOff callBack={setOnControlled} onControlled={onControlled}/>
-            <Accordion title={'-- User --'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed}/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            {/*<Accordion title={'-- User --'} collapsed={accordionCollapsed} onClick={setAccordionCollapsed} items={["Alex","Bob","Tom"]}/>*/}
+            <Rating value={ratingValue} onClick={setRatingValue} />
             {/*<Rating value={1}/>*/}
             {/*<Rating value={2}/>*/}
             {/*<Rating value={4}/>*/}

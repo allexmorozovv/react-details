@@ -1,44 +1,59 @@
 import React, {useState} from "react";
 
+type ItemType = {
+    value: any
+    title: string
+}
+
 export type AccordionPropsType = {
     title: string
-    collapsed:boolean
+    collapsed: boolean
     /**
      * OnClick that is called when header clicked
      * @param value
      */
-    onClick:(value:boolean)=>void
-
+    onClick: (value: boolean) => void
+    items: Array<ItemType>
+    onItemClick: (value: any) => void
 }
 
 export const Accordion = (props: AccordionPropsType) => {
 
     return <div>
-        <AccordionTitle title={props.title} onClick={()=>props.onClick(!props.collapsed)}
-                        // collapsed={props.collapsed}
+        <AccordionTitle title={props.title} onClick={() => props.onClick(!props.collapsed)}
+            // collapsed={props.collapsed}
         />
-        {!props.collapsed && <AccordionBody/>}
+        {!props.collapsed && <AccordionBody items={props.items} onItemClick={props.onItemClick}/>}
     </div>
 }
 
+
+
 type AccordionTitlePropsType = {
     title: string
-    onClick:()=>void
-    // collapsed:boolean
-    // onClick:(value:boolean)=>void
+    onClick: () => void
 
 }
+
 const AccordionTitle = (props: AccordionTitlePropsType) => {
 
-    return <h3 onClick={()=>props.onClick()}>{props.title}</h3>
+    return <h3 onClick={() => props.onClick()}>{props.title}</h3>
     // return <h3 onClick={()=>props.onClick(!props.collapsed)}>{props.title}</h3>
 }
-const AccordionBody = () => {
+
+
+
+type AccordionBodyPropsType = {
+    items: Array<ItemType>
+    onItemClick: (value: any) => void
+}
+
+const AccordionBody = (props: AccordionBodyPropsType) => {
     return <div>
         <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            {props.items.map((i, index) => <li onClick={() => {
+                props.onItemClick(i.value)
+            }} key={index}>{i.title}</li>)}
         </ul>
     </div>
 }

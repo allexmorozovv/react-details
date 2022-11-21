@@ -1,5 +1,5 @@
 import React, {useReducer} from "react";
-import {reducer} from "./Reducer";
+import {reducer} from "./reducer";
 
 type AccordionPropsType = {
     title: string

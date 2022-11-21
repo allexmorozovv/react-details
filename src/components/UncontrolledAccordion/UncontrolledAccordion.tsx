@@ -8,14 +8,14 @@ type AccordionPropsType = {
 export const UncontrolledAccordion = (props: AccordionPropsType) => {
 
     // let [collapsed, setCollapsed] = useState(true)
-    let [collapsed, dispatch] = useReducer(reducer,false)
+    let [state, dispatch] = useReducer(reducer, {collapsed: false})
 
     // const onClickHandler = () => {setCollapsed(!collapsed)}
-    const onClickHandler = () => {dispatch({type:"TOGGLE-COLLAPSED"})}
+    const onClickHandler = () => {dispatch({type: "TOGGLE-COLLAPSED"})}
 
     return <div>
         <AccordionTitle title={props.title} onClick={onClickHandler}/>
-        {!collapsed && <AccordionBody/>}
+        {!state.collapsed && <AccordionBody/>}
     </div>
 }
 

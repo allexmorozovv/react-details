@@ -34,3 +34,30 @@ export const SimpleExample = () => {
         {fake}
     </>
 }
+
+export const SetTimeoutExample = () => {
+    console.log('SetTimeoutExample')
+    const [fake, setFake] = useState(1)
+    const [counter, setCounter] = useState(1)
+
+    // useEffect(() => {
+    //
+    //     setTimeout(()=>{
+    //         document.title = `нажали ${counter.toString()} раз`
+    //     },1000)
+    // },[counter])
+
+    useEffect(() => {
+        setInterval(() => {
+            setCounter(state => state + 1)
+        }, 1000)
+    }, [])
+
+
+    return <>
+        Hello, counter: {counter}
+        {/*<button onClick={() => setCounter(counter + 1)}>counter+</button>*/}
+        {/*<button onClick={() => setFake(fake + 1)}>fake+</button>*/}
+        --fake: {fake}
+    </>
+}

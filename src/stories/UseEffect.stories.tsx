@@ -79,3 +79,23 @@ export const ResetEffectExample = () => {
     </>
 }
 
+export const KeysTrackerExample = () => {
+    const [text, setText] = useState('')
+    console.log('KeysTrackerExample rendered' + text)
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText(text + e.key)
+        }
+        console.log('Effect occurred')
+        window.addEventListener('keypress', handler)
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+    return <>
+        Typed text: {text}
+    </>
+}
+

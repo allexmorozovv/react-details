@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {log} from "util";
+
 
 export default {
     title: 'useEffect demo'
@@ -36,7 +36,7 @@ export const SimpleExample = () => {
     </>
 }
 
-export const SetTimeoutExample = () => {
+export const SetIntervalExample = () => {
     console.log('SetTimeoutExample')
     const [fake, setFake] = useState(1)
     const [counter, setCounter] = useState(1)
@@ -49,9 +49,12 @@ export const SetTimeoutExample = () => {
     // },[counter])
 
     useEffect(() => {
-        setInterval(() => {
+        const intervalId = setInterval(() => {
             setCounter(state => state + 1)
         }, 1000)
+        return () => {
+            clearInterval(intervalId)
+        }
     }, [])
 
 
@@ -92,6 +95,24 @@ export const KeysTrackerExample = () => {
         window.addEventListener('keypress', handler)
         return () => {
             window.removeEventListener('keypress', handler)
+        }
+    }, [text])
+    return <>
+        Typed text: {text}
+    </>
+}
+
+export const SetTimeoutExample = () => {
+    const [text, setText] = useState('')
+    console.log('SetTimeoutExample rendered' + text)
+
+    useEffect(() => {
+        const timeOutId = setTimeout(() => {
+            setText('3 second passed')
+        }, 3000)
+
+        return () => {
+            clearTimeout(timeOutId)
         }
     }, [text])
     return <>

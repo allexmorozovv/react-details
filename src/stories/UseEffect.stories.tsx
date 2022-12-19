@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {log} from "util";
 
 export default {
     title: 'useEffect demo'
@@ -61,3 +62,20 @@ export const SetTimeoutExample = () => {
         --fake: {fake}
     </>
 }
+
+export const ResetEffectExample = () => {
+    const [counter, setCounter] = useState(1)
+    console.log('ResetEffectExample rendered' + counter)
+
+    useEffect(() => {
+        console.log('Effect occurred' + counter)
+        return () => {
+            console.log('Reset effect' + counter)
+        }
+    }, [])
+    return <>
+        Hello, counter: {counter}
+        <button onClick={() => setCounter(counter + 1)}>counter+</button>
+    </>
+}
+
